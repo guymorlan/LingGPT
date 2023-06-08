@@ -1,1 +1,1 @@
-from .LingGPT import app
+from .linggpt import app

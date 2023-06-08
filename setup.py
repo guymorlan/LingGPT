@@ -10,8 +10,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'linggpt=LingGPT.run:main',
+            'linggpt=LingGPT.__main__:main',
         ],
     },
 )
-
