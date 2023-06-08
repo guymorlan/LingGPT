@@ -7,6 +7,7 @@ from flask_socketio import SocketIO, emit
 import re
 import tiktoken
 import tempfile
+import pathlib
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
