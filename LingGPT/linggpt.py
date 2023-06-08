@@ -225,5 +225,5 @@ def handle_translate_to_english(json):
 
 if __name__ == '__main__':
     print("Starting server at http://localhost:8000")
-    socketio.run(app, debug=True, port=8000)
+    socketio.run(app, debug=True, port=8000, use_reloader=False)
 
