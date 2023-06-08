@@ -8,5 +8,9 @@ setup(
     install_requires=[
         'flask',
     ],
+    entry_points={
+        'console_scripts': [
+            'linggpt=linggpt.__main__:main',
+        ],
+    },
 )
-
