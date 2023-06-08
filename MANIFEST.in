@@ -1,0 +1,3 @@
+include LingGPT/templates/*
+include LingGPT/static/*
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>LingGPT</title>
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/rangy/1.3.0/rangy-core.min.js"></script> <!-- rangy library -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/rangy/1.3.0/rangy-textrange.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+				<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+		</head>
+		<body>
+				<div id="mySidenav" class="sidenav">
+						<label for="apiKey">OpenAI API Key</label>
+						<input id="apiKey" type="password">
+						<br><br>
+
+						<label for="languageSelector">Select language</label>
+						<select id="languageSelector">
+								<option value="es-ES">Spanish</option>
+								<option value="fr-FR">French</option>
+								<option value="it-IT">Italian</option>
+								<option value="pt-PT">Portuguese</option>
+								<option value="de-DE">German</option>
+								<option value="sv-SE">Swedish</option>
+								<option value="nl-NL">Dutch</option>
+								<option value="zh-CN">Mandarin Chinese</option>
+								<option value="ja-JP">Japanese</option>
+								<option value="ar-SA">Arabic</option>
+						</select>
+						<br><br>
+
+						<label for="characterSelector">Select Character</label>
+						<select id="characterSelector">
+								<option value="friend">Friend</option>
+								<option value="clerk">Grocery store clerk</option>
+								<option value="storyteller">Storyteller</option>
+								<option value="professor">History professor</option>
+								<option value="painter">Painter</option>
+						</select>
+
+						<br>
+						<b> - OR - </b>
+						<br>
+						<label for="chatPartnerDescription">Describe your chat partner</label>
+						<textarea id="chatPartnerDescription" rows="4" cols="30"></textarea>
+						<br>
+
+						<button id="cleanButton" onclick="resetChatPartnerDescription()">Clear description</button>
+						<br><br>
+
+						<label for="modelSelector">Select OpenAI model</label>
+						<select id="modelSelector">
+								<option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+								<option value="gpt-4">gpt-4 (if you have API access!)</option>
+						</select>
+						<br><br>
+						<label for="tokenCount">Max Tokens to Send per Request</label>
+						<input id="tokenCount" type="number" min="1" max="4000" value="2000">
+				</div>
+				<div id="main">
+						<div class="container">
+								<h1 class="title">LingGPT</h1> 
+								<h3 class="subtitle">Practice Languages with ChatGPT</h3>
+
+								<br>
+								<br>
+								<div id="chat-container">
+										<div id="messages"></div>
+										<form id="text_form">
+												<textarea id="user_text" placeholder="Enter your message" rows="4" cols="50" style="resize:none;"></textarea>
+												<button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+												<button id="recordButton" type="button"><i class="fa-solid fa-microphone"></i></button>
+												<button id="getSuggestionButton" type="button"><i class="fa-regular fa-lightbulb"></i></button>
+										</form>
+								</div>
+
+								<div id="hoveringBox" style="display: none; position: fixed; background: white; border: 1px solid black; padding: 10px;">
+										<p id="translationText"></p>
+								</div>
+						</div>
+				</div>
+				<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+		</body>
+</html>
+

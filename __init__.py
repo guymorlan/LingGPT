@@ -1,0 +1,1 @@
+from .LingGPT import app

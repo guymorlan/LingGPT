@@ -1,0 +1,200 @@
+body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background-color: #f6f6f6;
+}
+
+#chat-container {
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		background-color: #f1f1f1;
+		border: 1px solid #ddd;
+		padding: 20px;
+		border-radius: 5px;
+}
+#messages {
+		height: 500px;
+		overflow-y: auto;
+		padding: 10px;
+		border: 1px solid #ccc;
+		background-color: #fff;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+}
+
+.message {
+		margin-bottom: 16px;
+		/* position: relative; */
+		padding: 10px 10px;
+		width: 70%;
+		font-size: 20px;
+}
+.user {
+		background-color: #e1ffc7;
+		display: inline-block;
+		border-radius: 5px;
+		margin-right: auto;
+}
+.chatgpt {
+		display: flex;
+		position: relative;
+		background-color: #d4e1ff;
+		/* flex-direction: row; */
+		/* align-items: flex-start; */
+		/* display: inline-block; */
+		border-radius: 5px;
+		margin-left: auto;
+}
+
+
+
+.buttons-wrapper {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+}
+
+.speak-btn, .translate-btn {
+		width: 40px;  /* Reduced size for better fit */
+		height: 40px;
+		border-radius: 50%;  /* Makes the buttons round */
+		display: flex;
+		align-items: center;  /* Center the emoji vertically */
+		justify-content: center;  /* Center the emoji horizontally */
+		font-size: 20px;  /* Increase the size of the emoji */
+		cursor: pointer;  /* Change the cursor when hovering over the button */
+		margin-right: 10px;  /* Space between buttons */
+		border: none;  /* Remove default button styles */
+		transition: background-color 0.3s ease;  /* Smooth transition for hover effects */
+}
+
+.speak-btn {
+		background-color: #4CAF50;  /* Green */
+}
+
+.translate-btn {
+		background-color: #2196F3;  /* Blue */
+}
+
+.speak-btn:hover {
+		background-color: #45a049;
+}
+
+.translate-btn:hover {
+		background-color: #2173a0;
+}
+
+.message-content {
+		flex-grow: 1; /* Makes the message content take up the remaining space */
+		padding-right: 20px;
+}
+
+/* Add the following styles */
+#text_form {
+		display: flex;
+		align-items: center;
+}
+#user_text {
+		flex-grow: 1;
+		margin-right: 10px;
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+}
+button {
+		padding: 10px 20px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		height: 50px;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 5px;
+		margin-right: 10px;
+}
+button:hover {
+		background-color: #45a049;
+}
+
+.translate-container {
+		position: relative;
+		width: 100%;
+}
+
+.container {
+		text-align: center;
+}
+.title {
+		color: #4a4a4a;
+}
+.subtitle {
+		color: #9b9b9b;
+		margin-bottom: 20px;
+}
+#languageSelector {
+		padding: 10px;
+		font-size: 16px;
+}
+
+#hoveringBox {
+		position: absolute;
+		background-color: #ffffff;
+		color: #333333;
+		border: 1px solid #333333;
+		border-radius: 5px;
+		padding: 2px;
+		z-index: 1000;
+		max-width: 200px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		display: none;
+		transition: opacity 0.2s ease-in-out;
+}
+
+.sidenav {
+		height: 100%;
+		width: 30%; /* Adjust the width to your preference */
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #003366;
+		padding-top: 20px;
+		overflow: auto;
+		color: #fff;
+		display: flex; 
+		flex-direction: column; 
+		align-items: center; 
+		justify-content: center; 
+}
+.sidenav label, .sidenav input, .sidenav select{
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 18px;
+		/* color: #fff; */
+		display: block;
+}
+
+.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 18px;
+		color: #fff;
+		display: block;
+}
+
+#main {
+		margin-left: 30%; /* Same as the width of the sidenav */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+}
