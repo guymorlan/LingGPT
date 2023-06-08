@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, send_from_directory
 from flask_socketio import SocketIO, emit
 import re
 import tiktoken
+import tempfile
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
@@ -32,13 +33,13 @@ characterDict = {"Friend": "a friend named Ralph, 25 years old, a university stu
                  "History Professor": "a history professor named Dr. Smith, 50 years old, a father of two, likes to play tennis and watch movies",
                  "Painter": "a painter named Sarah, 35 years old, a mother of one, likes to paint and play the piano"}
 
-os.makedirs('tts', exist_ok=True)
 
 
 @app.route('/tts/<path:path>')
 def send_js(path):
-    """Serve a file from the tts directory."""
-    return send_from_directory('tts', path)
+    """Serve a file from the temporary directory."""
+    temp_dir = pathlib.Path(tempfile.gettempdir())
+    return send_from_directory(temp_dir, path)
 
 
 @app.route('/')
@@ -188,7 +189,8 @@ def handle_get_tts(json):
 
     tts = gtts.gTTS(text=text, lang=language)
     filename = f"{language}_{hash(text)}.mp3"
-    tts.save(f"tts/{filename}")
+    file_path = os.path.join(tempfile.gettempdir(), filename)
+    tts.save(file_path)
     socketio.emit("ttsresponse", {"data": filename})
 
 
