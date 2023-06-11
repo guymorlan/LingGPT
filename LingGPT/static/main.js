@@ -196,6 +196,7 @@ function getSelectedText() {
 		return '';
 }
 
+// obsolete
 function getWordAtPoint(evt) {
 		var range = rangy.createRange();
 		range.selectNode(document.elementFromPoint(evt.clientX, evt.clientY));
@@ -203,6 +204,7 @@ function getWordAtPoint(evt) {
 		return range.toString();
 }
 
+// should handle RTL text better
 function getArabicWordAtPoint(evt) {
 		var range = rangy.createRange();
 		var node = document.elementFromPoint(evt.clientX, evt.clientY);

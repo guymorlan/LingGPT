@@ -139,10 +139,9 @@ def handle_text_submitted(json):
     else:
         used_char = characterDict[character]
 
-    prompt = f"You are a helpful language practice assistant for {language}, respond by roleplaying as {used_char}. If there are any grammar mistakes or if you have any important suggestions for improvement on the user's language use, fix them using English explanations inside square brackets. Any corrections or suggestions should appear only at the end of your entire response to the user. Your correction must be preceded by two linebreaks. Do not break character in your response. Avoid unnecessary comments or compliments to the user. Always roleplay and never identify as an 'assistant'."
+    prompt = f"You are a helpful language practice assistant for {language}, respond by roleplaying as {used_char}. If there are any grammar mistakes or if you have any important suggestions for improvement on the user's language use, fix them using English explanations inside square brackets. Any corrections or suggestions should appear only at the end of your entire response to the user. Your correction must be preceded by two linebreaks. Do not break character in your response. Avoid unnecessary comments or compliments to the user. Always roleplay and never identify as an 'assistant'. Only correct and comment on the user's mistakes, never comment on your own writing unless explicitly asked."
 
     # Get the conversation history for this session, or start a new one
-    global conversation
     if len(conversation) == 0:
         conversation = [{'role': 'system', 'content': prompt}]
     else:
