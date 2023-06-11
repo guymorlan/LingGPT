@@ -1,4 +1,5 @@
-# LingGPT: A Language Learning Practice Buddy
+# LingGPT: Practice Languages with ChatGPT
+
 This repository contains the code for LingGPT, a language learning assistant built using OpenAI's GPT-3 and GPT-4 models. The application is developed with Flask and Flask-SocketIO.
 
 ![Demo](Demo.png)
